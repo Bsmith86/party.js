@@ -94,22 +94,83 @@ const stealingGoods = party.forEach(el => {
 
  //Promt 6: Joline got upset and left the party. Take her out of the array. (leaving member is parameter)
 
-const removeMember = (memberName) => {
+const removeMember = (member) => {
      party.forEach ((el, index) => {
-        if (el.name == memberName){
+        if (el.name == member){
             party.splice(index,1)
         }
      } )
         
     
-}
-removeMember("Sarah")
+};
+removeMember("Joline");
+
  
 console.log(party);
 
+
  //Prompt 7: Timothy and Sarah have been recruiting. Add a new adventurer to the party. (new adventurer is parameter)
 
+ const createNewMember = (newMember) => {
+        party.push(newMember);
+       
+ }
+
+ let Dre = {
+    name: 'Dre',
+    hitpoints: 30,
+    belongings: ["axe", "rope", "fire starter"]
+
+};
+createNewMember(Dre);
+console.log(party)
+ //Prompt 8: The party has been doing well! They found 200 gold. Create a new property called gold and split the gold evenly between everyone. (amount of gold is parameter) 
+
+ let goldFound = 200;
+ 
+ const divyUp = () => {
+    party.forEach(el => {
+        el.gold = goldFound / 3;
+    } )
+   
+}
+divyUp(goldFound);
+
+console.log(party);
+
+//Prompt 9: Sarah is tired of taking care of a jellyfish. Subtract some gold from her and change her companion to a bear.
+
+party.forEach(el => {
+    if (el.name == "Sarah") {
+        el.gold = el.gold - 20;
+        el.companion = "bear";
+    }
+})
+
+console.log(party[1])
+
+//Prompt 10: Timothy’s sword has gotten old. Change it to “Rusty Sword" 
+
+//party.forEach(el => {
+  //  if (el.name == "Timothy") {
+       
+        
+//})
 
 
+//Prompt 11: Write a function called setLeader that takes a name as a parameter. The member with that name should have a new property leader: true while the other members have leader: false.
 
- //Prompt 
+let leader = "Dre";
+
+const setLeader = () => {
+    party.forEach(el => {
+        if (el.name == leader) {
+            el.leader = true;   
+        }
+        else {
+            el.leader = false;
+        }
+    });
+}
+setLeader(leader)
+console.log(party);
