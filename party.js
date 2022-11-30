@@ -151,12 +151,17 @@ console.log(party[1])
 
 //Prompt 10: Timothy’s sword has gotten old. Change it to “Rusty Sword" 
 
-//party.forEach(el => {
-  //  if (el.name == "Timothy") {
+party.forEach(el => {
+    if (el.name == "Timothy") {
+        el.belongings.forEach ((item, index) => {
+            if (item == "sword") {
+                el.belongings.splice(index, 1, "rusty sword");
+            }
+        })
        
-        
-//})
-
+    }     
+});
+console.log(party[0]);
 
 //Prompt 11: Write a function called setLeader that takes a name as a parameter. The member with that name should have a new property leader: true while the other members have leader: false.
 
